@@ -14,3 +14,72 @@
 	+ 心得体会
 
 #### 流程图
+[![](https://github.com/2018310985/Java-/blob/master/Java4.jpg)]
+#### 过程
+首先在一个.java文件中输入文本与参数
+并且使用.main将数据传入text.java文件中
+	
+	package CHG;
+	
+	public class chang_hen_ge {
+		public static void main(String args[]) {
+			String chgString = new String(
+				"汉皇重色思倾国御宇多年求不得杨家有女初…… "
+						+ ",天生丽质");
+
+			test.main(chgString);
+		}
+	}
+	
+传入数据后，将文本与参数分隔并分别赋值于两个String类中
+
+	public class test {
+		public static void main(String chgString) {
+			try {
+				String[] arrString = chgString.split(",");
+				String txtString = arrString[0];
+				String findString = arrString[1];
+				String find_wordString = new String();
+				String find_charString = new String();
+				
+做两次循环，将文本处理成此常见的形式，并输出
+
+	StringBuffer midBuffer = new StringBuffer();
+	for (int i = 0; i < txtString.length(); i++) {
+		midBuffer.append(txt[i]);
+		for (int j = 0; j < txtString.length() / 7; j++) {
+			if (i == (2 * j - 1) * 7 - 1) {
+				midBuffer.append("，");
+			}
+			if (i == (2 * j) * 7 - 1) {
+				midBuffer.append("。");
+				midBuffer.append("\n");
+			}
+		}
+	}
+	System.out.println(midBuffer);
+	
+通过获取与参数相同长度的顺序文本，既txt[m:m+find_wordString.length()]，再与参数对比，内容相同则使计数器加一
+
+	if (findString.length() > 1) {
+		find_wordString = findString;
+		for (int l = 0; l < txt.length - find_wordString.length(); l++) {
+			StringBuffer txtBuffer = new StringBuffer();
+			for (int m = l; m < l + find_wordString.length(); m++) {
+				txtBuffer.append(txt[m]);
+			}
+			if (find_wordString.equals(txtBuffer.toString())) {
+				count_word++;
+			} else {
+			}
+		}
+		System.out.println("“" + find_wordString + "”" + "词出现的个数为：" + count_word);
+		
+最后添加异常处理结构
+
+	} catch (Exception e) {
+		System.out.println("错误原因" + e);
+		// TODO: handle exception
+	}
+
+结果输出
